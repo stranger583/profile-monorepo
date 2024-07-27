@@ -1,18 +1,20 @@
 "use client";
 
 import { ReactNode } from "react";
-
-interface ButtonProps {
+import { cN } from "./utils/utils";
+export interface ButtonProps extends React.ComponentPropsWithoutRef<'button'> {
   children: ReactNode;
   className?: string;
-  appName: string;
 }
 
-export const Button = ({ children, className, appName }: ButtonProps) => {
+const variant = {
+  
+}
+
+export const Button = ({ children,className }: ButtonProps) => {
   return (
     <button
-      className=' ui-bg-red-500'
-      onClick={() => alert(`Hello from your ${appName} app!`)}
+      className= {cN(``,className)}
     >
       {children}
     </button>
