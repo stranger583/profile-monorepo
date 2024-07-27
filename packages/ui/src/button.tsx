@@ -10,16 +10,16 @@ export interface ButtonProps extends React.ComponentPropsWithoutRef<'button'> {
 }
 
 const baseStyle = {
-  default: 'ui-rounded',
-  outline: 'ui-border ui-rounded-full',
+  default: 'rounded',
+  outline: 'border rounded-full',
 }
 
 const baseColor = {
   default: '',
-  primary: 'ui-bg-primary ui-text-white',
-  secondary: 'ui-bg-secondary ui-text-white',
-  dark: 'ui-bg-black ui-text-white',
-  light: 'ui-bg-white ui-text-black',
+  primary: 'bg-primary text-white',
+  secondary: 'bg-secondary text-white',
+  dark: 'bg-black text-white',
+  light: 'bg-white text-black',
 }
 
 export const Button = ({ variant = 'outline', color = 'default', children, className, ...props }: ButtonProps) => {
@@ -27,7 +27,7 @@ export const Button = ({ variant = 'outline', color = 'default', children, class
     <button
       {...props}
       className={
-        cN('ui-flex ui-items-center ui-justify-between ui-py-1 ui-px-3 disabled:ui-pointer-events-none',
+        cN('flex items-center justify-between py-1 px-3 disabled:pointer-events-none',
           baseStyle[variant], baseColor[color],
           className
         )}
