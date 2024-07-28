@@ -1,24 +1,32 @@
-import { Card, CardHeader, CardContent } from "@repo/ui/card";
-import { Section } from "@repo/ui/section"
-import Image from "next/image";
 import "@repo/ui/styles.css";
 import "./globals.css";
+import Image from "next/image";
+import Link from "next/link";
+
+import { Card, CardHeader, CardContent } from "@repo/ui/card";
+import { Section } from "@repo/ui/section"
+import { Button } from "@repo/ui/button";
+import { Input } from "@repo/ui/input";
+
 import me from '@public/images/me.jpg'
 import fish from '@public/images/fish.jpg'
 import bar from '@public/images/bar.jpg'
+import fuji from "@public/images/fuji.jpg"
 import lionTravel from '@public/images/lion-travel.jpg'
+
 import moon from '@public/svg/moon.svg'
 import linkedin from '@public/svg/linkedin.svg'
 import github from '@public/svg/github.svg'
 import len from '@public/svg/len.svg'
-import fuji from "@public/images/fuji.jpg"
 import arrow from '@public/svg/arrow.svg'
 import arrowButton from '@public/svg/arrow-button.svg'
-import MainSectionBlock from "@components/main-section-block";
 import reactSvg from "@public/skills/react.svg"
-import Link from "next/link";
-import { Button } from "@repo/ui/button";
+
+import MainSectionBlock from "@components/main-section-block";
 import ArticleBlock from "@components/article-card";
+
+import { Locale } from '../../i18n.config'
+import { getDictionary } from '../../get-dictionary'
 
 const mockArticleData = [
   {
@@ -40,10 +48,15 @@ const mockArticleData = [
 ]
 
 
-export default function Home() {
+export default async function Home({
+  params: { lang }
+}:{
+  params: { lang: Locale }
+}) {
+  const { HomePage } = await getDictionary(lang)
   return (
-    <main className="flex justify-between gap-2">
-      <Section className="overflow-y-auto h-dvh w-[360px] flex flex-col gap-4">
+    <main className="flex gap-3">
+      <Section className="overflow-y-auto h-[calc(100dvh_-_32px)] w-[360px] flex flex-col gap-2 grow">
         <Card className="relative overflow-hidden">
           <Image src={fuji} alt="fuji" className="absolute z-10 left-0 -top-[110px] opacity-75" />
           <CardContent className="flex flex-col gap-2 relative z-20">
@@ -90,20 +103,24 @@ export default function Home() {
         <Card>
           <CardHeader>Links </CardHeader>
           <CardContent className="flex gap-2">
-            <Image src={linkedin} alt="dark mode"></Image>
-            <Image src={github} alt="len"></Image>
+            <Link href='https://www.linkedin.com/in/cozy-chen-508a68280/' target="_blank">
+            <Image src={linkedin} alt="dark mode"/>
+            </Link>
+            <Link href='https://github.com/stranger583' target="_blank">
+              <Image src={github} alt="len"/>
+            </Link>
           </CardContent>
         </Card>
         <Card>
           <CardHeader>Say something...  </CardHeader>
-          <CardContent className="flex items-center justify-between bg-input rounded-full p-0.5">
-            <input type="text" className=" bg-transparent" />
+          <CardContent className="flex items-center justify-between border border-secondaryText text-primaryText rounded-full p-0.5">
+            <Input />
             <Button variant="default" className="p-1"><Image src={arrowButton} alt='arrow-button' /></Button>
           </CardContent>
         </Card>
       </Section>
-      <Section className="overflow-y-auto h-dvh w-[720px] flex flex-col gap-10">
-        <MainSectionBlock title="Who am I" titleSize="2xl">
+      <Section className="overflow-y-auto h-[calc(100dvh_-_32px)] w-[720px] flex flex-col gap-10 grow">
+        <MainSectionBlock title={HomePage.mainTitle} titleSize="2xl">
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint placeat soluta maiores natus doloribus porro. Eum, sequi neque velit pariatur unde quasi, iure laudantium, voluptatem rerum voluptates ipsum sint. Quam.</p>
         </MainSectionBlock>
         <MainSectionBlock title="Skills" url="./">
@@ -132,7 +149,7 @@ export default function Home() {
           </div>
         </MainSectionBlock>
       </Section>
-      <Section className="overflow-y-auto h-dvh w-[360px] flex flex-col gap-4">
+      <Section className="overflow-y-auto h-[calc(100dvh_-_32px)] w-[360px] flex flex-col gap-2 grow">
         <div className="-mb-4">
           <h2 className="text-2xl font-bold">Yong Chen</h2>
           <h4 className="text-base font-bold mb-4">Frond End Developer</h4>
@@ -158,7 +175,7 @@ export default function Home() {
               National Taiwan Normal University
             </p>
             <p className="text-secondaryText">
-              09 / 2017 - 06/2021
+              09 / 2017 - 06 / 2021
             </p>
           </CardContent>
         </Card>

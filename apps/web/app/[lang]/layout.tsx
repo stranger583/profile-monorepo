@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Locale, i18n } from '../../i18n.config'
 import localFont from "next/font/local";
 import "@repo/tailwind-config/styles.css"
 
@@ -18,11 +19,14 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+  params
 }: Readonly<{
   children: React.ReactNode;
+  params: { lang: Locale }
 }>) {
+  console.log('lang',params)
   return (
-    <html lang="en">
+    <html lang={params.lang}>
       <body className={`dark p-4`}>
         {children}
       </body>
