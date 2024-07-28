@@ -11,9 +11,9 @@
     "./styles.css": "./dist/index.css",
     "./card": "./src/card.tsx",
     "./button": "./src/button.tsx",
-    "./accordion":"./src/accordion.tsx",
-    "./section":"./src/section.tsx"
-
+    "./accordion": "./src/accordion.tsx",
+    "./section": "./src/section.tsx",
+    "./input": "./src/input.tsx"
   },
   "license": "MIT",
   "scripts": {
