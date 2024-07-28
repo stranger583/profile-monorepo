@@ -25,6 +25,9 @@ import reactSvg from "@public/skills/react.svg"
 import MainSectionBlock from "@components/main-section-block";
 import ArticleBlock from "@components/article-card";
 
+import { Locale } from '../../i18n.config'
+import { getDictionary } from '../../get-dictionary'
+
 const mockArticleData = [
   {
     imgUrl: './images/lion-travel.jpg',
@@ -45,7 +48,12 @@ const mockArticleData = [
 ]
 
 
-export default function Home() {
+export default async function Home({
+  params: { lang }
+}:{
+  params: { lang: Locale }
+}) {
+  const { HomePage } = await getDictionary(lang)
   return (
     <main className="flex gap-3">
       <Section className="overflow-y-auto h-[calc(100dvh_-_32px)] w-[360px] flex flex-col gap-2 grow">
@@ -112,7 +120,7 @@ export default function Home() {
         </Card>
       </Section>
       <Section className="overflow-y-auto h-[calc(100dvh_-_32px)] w-[720px] flex flex-col gap-10 grow">
-        <MainSectionBlock title="Who am I" titleSize="2xl">
+        <MainSectionBlock title={HomePage.mainTitle} titleSize="2xl">
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint placeat soluta maiores natus doloribus porro. Eum, sequi neque velit pariatur unde quasi, iure laudantium, voluptatem rerum voluptates ipsum sint. Quam.</p>
         </MainSectionBlock>
         <MainSectionBlock title="Skills" url="./">

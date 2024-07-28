@@ -12,7 +12,7 @@
       "@utils/*": ["./utils/*"],
       "@hooks/*": ["./hooks/*"],
       "@libs/*": ["./libs/*"]
-  }
+    }
   },
   "include": [
     "next-env.d.ts",
