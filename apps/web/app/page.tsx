@@ -14,17 +14,37 @@ import len from '@public/svg/len.svg'
 import fuji from "@public/images/fuji.jpg"
 import arrow from '@public/svg/arrow.svg'
 import arrowButton from '@public/svg/arrow-button.svg'
-
-
+import MainSectionBlock from "@components/main-section-block";
+import reactSvg from "@public/skills/react.svg"
 import Link from "next/link";
 import { Button } from "@repo/ui/button";
+import ArticleBlock from "@components/article-card";
+
+const mockArticleData = [
+  {
+    imgUrl: './images/lion-travel.jpg',
+    link: './',
+    date: 'June 3, 2024',
+    skills: ['Nextjs', 'React', 'TailwindCSS'],
+    title: 'XinMedia',
+    description: 'i voluptates adipisci alias a nemo vel ipsamlit. Facere doloremque error debitis veniam similique. Corporis vitae',
+  },
+  {
+    imgUrl: './images/lion-travel.jpg',
+    link: './',
+    date: 'June 3, 2024',
+    skills: ['Nextjs', 'React', 'TailwindCSS'],
+    title: 'XinFlight',
+    description: 'i voluptates adipisci alias a nemo vel ipsamlit. Facere doloremque error debitis veniam similique. Corporis vitae',
+  },
+]
 
 
 export default function Home() {
   return (
     <main className="flex justify-between gap-2">
-      <Section className="w-[360px] flex flex-col gap-4">
-        <Card className=" relative overflow-hidden">
+      <Section className="overflow-y-auto h-dvh w-[360px] flex flex-col gap-4">
+        <Card className="relative overflow-hidden">
           <Image src={fuji} alt="fuji" className="absolute z-10 left-0 -top-[110px] opacity-75" />
           <CardContent className="flex flex-col gap-2 relative z-20">
             <Link href='' className="text-bold text-base">Home</Link>
@@ -82,13 +102,37 @@ export default function Home() {
           </CardContent>
         </Card>
       </Section>
-      <Section className="w-[720px]">
-        <Card>
-          <CardHeader>Tools </CardHeader>
-          <CardContent>lin1</CardContent>
-        </Card>
+      <Section className="overflow-y-auto h-dvh w-[720px] flex flex-col gap-10">
+        <MainSectionBlock title="Who am I" titleSize="2xl">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint placeat soluta maiores natus doloribus porro. Eum, sequi neque velit pariatur unde quasi, iure laudantium, voluptatem rerum voluptates ipsum sint. Quam.</p>
+        </MainSectionBlock>
+        <MainSectionBlock title="Skills" url="./">
+          <div className="flex gap-4">
+            <Image src={reactSvg} alt="react" />
+            <Image src={reactSvg} alt="react" />
+            <Image src={reactSvg} alt="react" />
+            <Image src={reactSvg} alt="react" />
+            <Image src={reactSvg} alt="react" />
+            <Image src={reactSvg} alt="react" />
+            <Image src={reactSvg} alt="react" />
+          </div>
+        </MainSectionBlock>
+        <MainSectionBlock title="Recent Project" url="./">
+          <div className="flex items-center justify-between gap-4">
+            {mockArticleData.map(infos => (
+              <ArticleBlock key={infos.title} articleInfos={infos} />
+            ))}
+          </div>
+        </MainSectionBlock>
+        <MainSectionBlock title="Recent Article" url="./">
+          <div className="flex items-center justify-between gap-4">
+            {mockArticleData.map(infos => (
+              <ArticleBlock key={infos.title} articleInfos={infos} />
+            ))}
+          </div>
+        </MainSectionBlock>
       </Section>
-      <Section className="w-[360px] flex flex-col gap-4">
+      <Section className="overflow-y-auto h-dvh w-[360px] flex flex-col gap-4">
         <div className="-mb-4">
           <h2 className="text-2xl font-bold">Yong Chen</h2>
           <h4 className="text-base font-bold mb-4">Frond End Developer</h4>

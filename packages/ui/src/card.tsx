@@ -9,7 +9,7 @@ export function Card({
 }: CardProps) {
   return (
     <div
-      className={cN(`bg-card px-4 py-5 rounded-lg`,className)}
+      className={cN(`h-max shrink-0 bg-card px-4 py-5 rounded-lg`,className)}
     >
       {children}
     </div>
