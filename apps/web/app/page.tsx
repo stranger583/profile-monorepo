@@ -1,25 +1,28 @@
-import { Card, CardHeader, CardContent } from "@repo/ui/card";
-import { Section } from "@repo/ui/section"
-import Image from "next/image";
 import "@repo/ui/styles.css";
 import "./globals.css";
+import Image from "next/image";
+import Link from "next/link";
+
+import { Card, CardHeader, CardContent } from "@repo/ui/card";
+import { Section } from "@repo/ui/section"
+import { Button } from "@repo/ui/button";
+import { Input } from "@repo/ui/input";
+
 import me from '@public/images/me.jpg'
 import fish from '@public/images/fish.jpg'
 import bar from '@public/images/bar.jpg'
+import fuji from "@public/images/fuji.jpg"
 import lionTravel from '@public/images/lion-travel.jpg'
+
 import moon from '@public/svg/moon.svg'
 import linkedin from '@public/svg/linkedin.svg'
 import github from '@public/svg/github.svg'
 import len from '@public/svg/len.svg'
-import fuji from "@public/images/fuji.jpg"
 import arrow from '@public/svg/arrow.svg'
 import arrowButton from '@public/svg/arrow-button.svg'
-import MainSectionBlock from "@components/main-section-block";
 import reactSvg from "@public/skills/react.svg"
-import Link from "next/link";
-import { Button } from "@repo/ui/button";
-import { Input } from "@repo/ui/input";
 
+import MainSectionBlock from "@components/main-section-block";
 import ArticleBlock from "@components/article-card";
 
 const mockArticleData = [
