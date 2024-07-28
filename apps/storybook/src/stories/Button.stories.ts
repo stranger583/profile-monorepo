@@ -5,6 +5,7 @@ const button = {
   title: 'Example/Button',
   component: Button,
   tags: ['autodocs'],
+  
 } satisfies Meta<typeof Button>;
  
 export default button;

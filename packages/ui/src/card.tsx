@@ -1,25 +1,52 @@
+import { cN } from "./utils/utils";
+interface CardProps {
+  className?: string;
+  children: React.ReactNode;
+}
 export function Card({
   className,
-  title,
   children,
-  href,
-}: {
-  className?: string;
-  title: string;
-  children: React.ReactNode;
-  href: string;
-}): JSX.Element {
+}: CardProps) {
   return (
-    <a
-      className={` ui-text-white ui-bg-slate-600 ${className}`}
-      href={`${href}?utm_source=create-turbo&utm_medium=basic&utm_campaign=create-turbo"`}
-      rel="noopener noreferrer"
-      target="_blank"
+    <div
+      className={cN(`h-max shrink-0 bg-card px-4 py-5 rounded-lg`,className)}
     >
-      <h2>
-        {title} <span>-&gt;</span>
-      </h2>
-      <p>{children}</p>
-    </a>
+      {children}
+    </div>
   );
 }
+
+interface CardHeaderProps {
+  className?: string;
+  children: React.ReactNode;
+}
+export function CardHeader({
+  className,
+  children,
+}: CardHeaderProps) {
+  return (
+    <div
+      className={cN(`mb-2`,className)}
+    >
+      {children}
+    </div>
+  );
+}
+
+interface CardContentProps {
+  className?: string;
+  children: React.ReactNode;
+}
+export function CardContent({
+  className,
+  children,
+}: CardContentProps) {
+  return (
+    <div
+      className={cN(``,className)}
+    >
+      {children}
+    </div>
+  );
+}
+
