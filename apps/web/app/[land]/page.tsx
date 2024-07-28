@@ -95,8 +95,12 @@ export default function Home() {
         <Card>
           <CardHeader>Links </CardHeader>
           <CardContent className="flex gap-2">
-            <Image src={linkedin} alt="dark mode"></Image>
-            <Image src={github} alt="len"></Image>
+            <Link href='https://www.linkedin.com/in/cozy-chen-508a68280/' target="_blank">
+            <Image src={linkedin} alt="dark mode"/>
+            </Link>
+            <Link href='https://github.com/stranger583' target="_blank">
+              <Image src={github} alt="len"/>
+            </Link>
           </CardContent>
         </Card>
         <Card>
