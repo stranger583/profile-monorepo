@@ -112,7 +112,7 @@ export default async function Home({
         </Card>
         <Card>
           <CardHeader>Say something...  </CardHeader>
-          <CardContent className="flex items-center justify-between border border-secondaryText text-primaryText rounded-full p-0.5">
+          <CardContent className="flex items-center justify-between border border-input text-primaryText rounded-full p-0.5">
             <Input />
             <Button variant="default" className="p-1"><Image src={arrowButton} alt='arrow-button' /></Button>
           </CardContent>
@@ -181,7 +181,7 @@ export default async function Home({
         <Card>
           <CardHeader>Work Experience : </CardHeader>
           <CardContent>
-            <Card className=" p-0 bg-input">
+            <Card className=" p-0 bg-white">
               <Link className='flex gap-2 items-center' href=''>
                 <CardHeader className="overflow-hidden rounded-l-lg mb-0">
                   <Image src={lionTravel} alt='lion-travel' className="w-20" />

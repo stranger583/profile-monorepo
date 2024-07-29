@@ -28,7 +28,7 @@ export default function RootLayout({
 }>) {
   console.log('lang',params)
   return (
-    <html lang={params.lang}>
+    <html lang={params.lang} data-theme='dark'>
       <body className={`dark p-4`}>
         {children}
       </body>
