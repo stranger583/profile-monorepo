@@ -1,5 +1,6 @@
-import "@repo/ui/styles.css";
 import "./globals.css";
+import "@repo/ui/styles.css";
+
 import Image from "next/image";
 import Link from "next/link";
 
@@ -14,7 +15,7 @@ import bar from '@public/images/bar.jpg'
 import fuji from "@public/images/fuji.jpg"
 import lionTravel from '@public/images/lion-travel.jpg'
 
-import moon from '@public/svg/moon.svg'
+import ThemeButton from "@components/theme-button";
 import linkedin from '@public/svg/linkedin.svg'
 import github from '@public/svg/github.svg'
 import len from '@public/svg/len.svg'
@@ -55,8 +56,8 @@ export default async function Home({
 }) {
   const { HomePage } = await getDictionary(lang)
   return (
-    <main className="flex gap-3">
-      <Section className="overflow-y-auto h-[calc(100dvh_-_32px)] w-[360px] flex flex-col gap-2 grow">
+    <main className="flex gap-3 scrollbar-thin scrollbar-webkit">
+      <Section className="overflow-y-auto h-[calc(100dvh_-_32px)] w-[360px] flex flex-col gap-2 grow scrollbar-webkit">
         <Card className="relative overflow-hidden">
           <Image src={fuji} alt="fuji" className="absolute z-10 left-0 -top-[110px] opacity-75" />
           <CardContent className="flex flex-col gap-2 relative z-20">
@@ -66,12 +67,10 @@ export default async function Home({
             <Link href='' className="text-bold text-base">Article</Link>
           </CardContent>
         </Card>
-        <Card>
+        <Card className="">
           <CardHeader>Tools </CardHeader>
           <CardContent className="flex gap-2">
-            <Button variant="default" className="p-0">
-              <Image src={moon} alt="dark mode" />
-            </Button>
+            <ThemeButton/>
             <Button variant="default" className="p-0">
               <Image src={len} alt="len" />
             </Button>

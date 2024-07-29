@@ -22,7 +22,7 @@ const config: Omit<Config, "content"> = {
         section:'rgba(var(--section))',
         card:'rgba(var(--card))',
         input:'rgba(var(--input))',
-        tag:'rgba(var(--background))',
+        tag:'rgba(var(--tag))',
         border:'rgba(var(--border))',
         primary:'rgba(var(--primary))',
         secondary:'rgba(var(--secondary))',
@@ -31,6 +31,29 @@ const config: Omit<Config, "content"> = {
       }
     },
   },
-  plugins: [],
+  plugins: [
+    function({addUtilities}:any) {
+      const newUtilities = {
+        '.scrollbar-thin' : {
+          scrollbarWidth: 'thin',
+          scrollbarColor: 'rgba(var(--card))'
+        },
+        '.scrollbar-webkit': {
+          '&::-webkut-scrollbar' :{
+            width:'8px'
+          },
+          '&::-webkit-scrollbar-track': {
+            background:'rgba(var(--section))'
+          },
+          '&::-webkit-scrollbar-thumb' : {
+            background:'rgba(var(--card))',
+            borderRadius: '20px',
+            border:"1px solid rgba(var(--input))"
+          }
+        }
+      }
+      addUtilities(newUtilities,['responsive','hover'])
+    }
+  ],
 };
 export default config;

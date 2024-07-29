@@ -27,7 +27,7 @@ function ArticleBlock({ articleInfos }: ArticleBlockProps) {
                 <p className="text-sm text-secondaryText mb-2">{date}</p>
                 <div className="flex gap-1 mb-2 ">
                     {skills.map(skill => (
-                        <div key={skill} className="px-3 py-1 bg-tag rounded-full text-sm">{skill}</div>
+                        <div key={skill} className="px-3 py-1 bg-tag rounded-full text-sm border border-cardBorder">{skill}</div>
                     ))}
                 </div>
                 <h4 className="font-bold mb-1">{title}</h4>
