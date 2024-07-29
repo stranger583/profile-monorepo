@@ -4,12 +4,11 @@ import { Button } from "@repo/ui/button";
 import Image from "next/image";
 import moon from "@public/svg/moon.svg";
 
-const defaultDarkMode = window.matchMedia(
-  "(prefers-color-scheme: dark)"
-).matches;
+
 
 function ThemeButton() {
-  const [isDarkMode, setIsDarkMode] = useState(defaultDarkMode);
+
+  const [isDarkMode, setIsDarkMode] = useState(true);
 
   const handleTheme = () => {
     setIsDarkMode((prev) => !prev);

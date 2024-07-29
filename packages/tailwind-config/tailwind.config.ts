@@ -24,10 +24,12 @@ const config: Omit<Config, "content"> = {
         input:'rgba(var(--input))',
         tag:'rgba(var(--tag))',
         border:'rgba(var(--border))',
+        cardBorder:'rgba(var(--cardBorder))',
         primary:'rgba(var(--primary))',
         secondary:'rgba(var(--secondary))',
         primaryText:'rgba(var(--primaryText))',
-        secondaryText:'rgba(var(--secondaryText))'
+        secondaryText:'rgba(var(--secondaryText))',
+        cardBorderAlpha:'rgba(var(--cardBorderAlpha))'
       }
     },
   },
