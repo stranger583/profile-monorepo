@@ -58,7 +58,7 @@ export default async function Home({
   const { HomePage } = await getDictionary(lang);
   return (
     <main className="flex gap-3 scrollbar-thin scrollbar-webkit">
-      <Section className="overflow-y-auto h-[calc(100dvh_-_32px)] w-[360px] flex flex-col gap-2 grow scrollbar-webkit border border-cardBorder">
+      <Section className="overflow-y-auto h-[calc(100dvh_-_32px)] w-[360px] flex flex-col gap-2 grow scrollbar-webkit ">
         <Card className="relative overflow-hidden">
           <Image
             src={fuji}
@@ -150,7 +150,7 @@ export default async function Home({
           </CardContent>
         </Card>
       </Section>
-      <Section className="overflow-y-auto h-[calc(100dvh_-_32px)] w-[720px] flex flex-col gap-10 grow">
+      <Section className="overflow-y-auto h-[calc(100dvh_-_32px)] w-[720px] flex flex-col gap-10 grow ">
         <MainSectionBlock title={HomePage.mainTitle} titleSize="2xl">
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint
@@ -185,7 +185,7 @@ export default async function Home({
           </div>
         </MainSectionBlock>
       </Section>
-      <Section className="overflow-y-auto h-[calc(100dvh_-_32px)] w-[360px] flex flex-col gap-2 grow">
+      <Section className="overflow-y-auto h-[calc(100dvh_-_32px)] w-[360px] flex flex-col gap-2 grow ">
         <div className="-mb-4">
           <h2 className="text-2xl font-bold">Yong Chen</h2>
           <h4 className="text-base font-bold mb-4">Frond End Developer</h4>
