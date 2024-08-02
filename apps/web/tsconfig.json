@@ -11,7 +11,10 @@
       "@components/*": ["./components/*"],
       "@utils/*": ["./utils/*"],
       "@hooks/*": ["./hooks/*"],
-      "@libs/*": ["./libs/*"]
+      "@libs/*": ["./libs/*"],
+      "@icons/*": ["./icons/*"],
+      "@constant/*": ["./constant*"]
+
     }
   },
   "include": [

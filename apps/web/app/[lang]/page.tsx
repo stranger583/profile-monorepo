@@ -28,6 +28,8 @@ import ArticleBlock from "@components/article-card";
 import { Locale } from "../../i18n.config";
 import { getDictionary } from "../../get-dictionary";
 import LangButton from "@components/lang-button";
+import GitHubIcon from "@icons/github";
+import LinkedinIcon from "@icons/linkedin-icons";
 
 const mockArticleData = [
   {
@@ -57,8 +59,8 @@ export default async function Home({
 }) {
   const { HomePage } = await getDictionary(lang);
   return (
-    <main className="flex gap-3 scrollbar-thin scrollbar-webkit">
-      <Section className="overflow-y-auto h-[calc(100dvh_-_32px)] w-[360px] flex flex-col gap-2 grow scrollbar-webkit ">
+    <main className="desktop:flex-row flex gap-3">
+      <Section className="w-[360px]  ">
         <Card className="relative overflow-hidden">
           <Image
             src={fuji}
@@ -133,10 +135,10 @@ export default async function Home({
               href="https://www.linkedin.com/in/cozy-chen-508a68280/"
               target="_blank"
             >
-              <Image src={linkedin} alt="dark mode" />
+              <GitHubIcon/>
             </Link>
             <Link href="https://github.com/stranger583" target="_blank">
-              <Image src={github} alt="len" />
+              <LinkedinIcon/>
             </Link>
           </CardContent>
         </Card>
@@ -185,7 +187,7 @@ export default async function Home({
           </div>
         </MainSectionBlock>
       </Section>
-      <Section className="overflow-y-auto h-[calc(100dvh_-_32px)] w-[360px] flex flex-col gap-2 grow ">
+      <Section className="overflow-y-auto min-w-80 h-[calc(100dvh_-_32px)] w-[360px] flex flex-col gap-2 ">
         <div className="-mb-4">
           <h2 className="text-2xl font-bold">Yong Chen</h2>
           <h4 className="text-base font-bold mb-4">Frond End Developer</h4>

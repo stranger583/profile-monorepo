@@ -1,0 +1,1 @@
+export const baseIconStyle= 'stroke-[1.5] stroke-current text-primaryText'

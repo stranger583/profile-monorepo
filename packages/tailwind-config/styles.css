@@ -1,7 +1,7 @@
 :root {
   --background: 0, 0, 0;
-  --section: 250, 250, 250;
-  --card: 245, 245, 245;
+  --section: 255, 255, 255;
+  --card: 255, 255, 255;
   --tag: 248, 248, 248;
   --input: 217, 217, 217;
   --cardBorderAlpha: 1;
@@ -24,7 +24,7 @@
   --card: 36, 36, 36;
   --tag: 41, 41, 41;
   --input: 248, 248, 248;
-  --cardBorderAlpha: .0; 
+  --cardBorderAlpha: 0;
   --border: 255, 255, 255;
   --cardBorder: var(--border), var(--cardBorderAlpha);
 
