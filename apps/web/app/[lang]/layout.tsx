@@ -1,9 +1,19 @@
 import type { Metadata } from "next";
-import { Locale, i18n } from '../../i18n.config'
+import { Locale, i18n } from "../../i18n.config";
 import localFont from "next/font/local";
 
-import "@repo/tailwind-config/styles.css"
-
+import "@repo/tailwind-config/styles.css";
+import LangButton from "@components/lang-button";
+import ThemeButton from "@components/theme-button";
+import GitHubIcon from "@icons/github-icon";
+import LinkedinIcon from "@icons/linkedin-icons";
+import { Section } from "@repo/ui/section";
+import Link from "next/link";
+import NavCard from "@components/nav-card";
+import NavCollapsible from "@components/nav-collapsible";
+import NavAlbum from "@components/nav-album";
+import NavToolsCard from "@components/nav-tools-card";
+import Header from "@components/header";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -21,16 +31,39 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-  params
+  params,
 }: Readonly<{
   children: React.ReactNode;
-  params: { lang: Locale }
+  params: { lang: Locale };
 }>) {
-  console.log('lang',params)
+  console.log("lang", params);
   return (
-    <html lang={params.lang} data-theme='dark'>
+    <html lang={params.lang} data-theme="dark">
       <body className={`dark p-4`}>
-        {children}
+        <Header />
+        <main className="flex flex-col tablet:flex-row gap-3">
+          <Section className="w-[360px] hidden desktop:flex">
+            <NavCard />
+            <NavToolsCard title="Tools">
+              <ThemeButton />
+              <LangButton />
+            </NavToolsCard>
+            <NavCollapsible />
+            <NavAlbum />
+            <NavToolsCard title="Links">
+              <Link
+                href="https://www.linkedin.com/in/cozy-chen-508a68280/"
+                target="_blank"
+              >
+                <GitHubIcon />
+              </Link>
+              <Link href="https://github.com/stranger583" target="_blank">
+                <LinkedinIcon />
+              </Link>
+            </NavToolsCard>
+          </Section>
+          {children}
+        </main>
       </body>
     </html>
   );

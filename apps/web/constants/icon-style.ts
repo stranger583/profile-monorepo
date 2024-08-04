@@ -1,0 +1,1 @@
+export const baseIconStyle= 'w-4  stroke-current text-primaryText'

@@ -1,34 +1,20 @@
-import "./globals.css";
 import "@repo/ui/styles.css";
+import "./globals.css";
 
 import Image from "next/image";
 import Link from "next/link";
 
 import { Card, CardHeader, CardContent } from "@repo/ui/card";
 import { Section } from "@repo/ui/section";
-import { Button } from "@repo/ui/button";
-import { Input } from "@repo/ui/input";
-
 import me from "@public/images/me.jpg";
-import fish from "@public/images/fish.jpg";
 import bar from "@public/images/bar.jpg";
-import fuji from "@public/images/fuji.jpg";
 import lionTravel from "@public/images/lion-travel.jpg";
-
-import ThemeButton from "@components/theme-button";
-import linkedin from "@public/svg/linkedin.svg";
-import github from "@public/svg/github.svg";
-import arrow from "@public/svg/arrow.svg";
-import arrowButton from "@public/svg/arrow-button.svg";
-import reactSvg from "@public/skills/react.svg";
 
 import MainSectionBlock from "@components/main-section-block";
 import ArticleBlock from "@components/article-card";
 
 import { Locale } from "../../i18n.config";
 import { getDictionary } from "../../get-dictionary";
-import LangButton from "@components/lang-button";
-
 const mockArticleData = [
   {
     imgUrl: "./images/lion-travel.jpg",
@@ -57,100 +43,8 @@ export default async function Home({
 }) {
   const { HomePage } = await getDictionary(lang);
   return (
-    <main className="flex gap-3 scrollbar-thin scrollbar-webkit">
-      <Section className="overflow-y-auto h-[calc(100dvh_-_32px)] w-[360px] flex flex-col gap-2 grow scrollbar-webkit border border-cardBorder">
-        <Card className="relative overflow-hidden">
-          <Image
-            src={fuji}
-            alt="fuji"
-            className="absolute z-10 left-0 -top-[110px] opacity-75"
-          />
-          <CardContent className="flex flex-col gap-2 relative z-20">
-            <Link href="" className="text-bold text-base">
-              Home
-            </Link>
-            <Link href="" className="text-bold text-base">
-              About
-            </Link>
-            <Link href="" className="text-bold text-base">
-              Project
-            </Link>
-            <Link href="" className="text-bold text-base">
-              Article
-            </Link>
-          </CardContent>
-        </Card>
-        <Card className="">
-          <CardHeader>Tools </CardHeader>
-          <CardContent className="flex gap-2">
-            <ThemeButton />
-            <LangButton />
-          </CardContent>
-        </Card>
-        <Card>
-          <CardHeader className="flex gap-2 items-center">
-            Projects
-            <Image src={arrow} alt="arrow" />
-          </CardHeader>
-          <CardContent className="mb-4">
-            <Link href="" className="text-secondaryText text-sm">
-              i voluptates adipisci alias a nemo vel
-            </Link>
-            <Link href="" className="text-secondaryText text-sm">
-              i voluptates adipisci alias a nemo vel
-            </Link>
-            <Link href="" className="text-secondaryText text-sm">
-              i voluptates adipisci alias a nemo vel
-            </Link>
-          </CardContent>
-          <CardHeader className="flex gap-2 items-center">
-            Articles
-            <Image src={arrow} alt="arrow" />
-          </CardHeader>
-          <CardContent>
-            <Link href="" className="text-secondaryText text-sm">
-              i voluptates adipisci alias a nemo vel
-            </Link>
-            <Link href="" className="text-secondaryText text-sm">
-              i voluptates adipisci alias a nemo vel
-            </Link>
-            <Link href="" className="text-secondaryText text-sm">
-              i voluptates adipisci alias a nemo vel
-            </Link>
-          </CardContent>
-        </Card>
-        <Card className="p-0 overflow-hidden h-32 relative">
-          <Image
-            src={fish}
-            className="absolute -top-1/3 left-1/2 -translate-x-1/2"
-            alt="fish"
-          />
-        </Card>
-        <Card>
-          <CardHeader>Links </CardHeader>
-          <CardContent className="flex gap-2">
-            <Link
-              href="https://www.linkedin.com/in/cozy-chen-508a68280/"
-              target="_blank"
-            >
-              <Image src={linkedin} alt="dark mode" />
-            </Link>
-            <Link href="https://github.com/stranger583" target="_blank">
-              <Image src={github} alt="len" />
-            </Link>
-          </CardContent>
-        </Card>
-        <Card>
-          <CardHeader>Say something... </CardHeader>
-          <CardContent className="flex items-center justify-between border border-input text-primaryText rounded-full p-0.5">
-            <Input />
-            <Button variant="default" className="p-1">
-              <Image src={arrowButton} alt="arrow-button" />
-            </Button>
-          </CardContent>
-        </Card>
-      </Section>
-      <Section className="overflow-y-auto h-[calc(100dvh_-_32px)] w-[720px] flex flex-col gap-10 grow">
+    <>
+      <Section className="tablet:w-[720px] gap-10 grow ">
         <MainSectionBlock title={HomePage.mainTitle} titleSize="2xl">
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint
@@ -159,33 +53,26 @@ export default async function Home({
             ipsum sint. Quam.
           </p>
         </MainSectionBlock>
-        <MainSectionBlock title="Skills" url="./">
-          <div className="flex gap-4">
-            <Image src={reactSvg} alt="react" />
-            <Image src={reactSvg} alt="react" />
-            <Image src={reactSvg} alt="react" />
-            <Image src={reactSvg} alt="react" />
-            <Image src={reactSvg} alt="react" />
-            <Image src={reactSvg} alt="react" />
-            <Image src={reactSvg} alt="react" />
-          </div>
-        </MainSectionBlock>
         <MainSectionBlock title="Recent Project" url="./">
+          <div className="flex laptop:flex-row flex-col items-center justify-between gap-8 tablet:gap-4 ">
+            {mockArticleData.map((infos) => (
+              <ArticleBlock
+                key={infos.title}
+                articleInfos={infos}
+                className="w-full"
+              />
+            ))}
+          </div>
+        </MainSectionBlock>
+        {/* <MainSectionBlock title="Recent Article" url="./">
           <div className="flex items-center justify-between gap-4">
             {mockArticleData.map((infos) => (
               <ArticleBlock key={infos.title} articleInfos={infos} />
             ))}
           </div>
-        </MainSectionBlock>
-        <MainSectionBlock title="Recent Article" url="./">
-          <div className="flex items-center justify-between gap-4">
-            {mockArticleData.map((infos) => (
-              <ArticleBlock key={infos.title} articleInfos={infos} />
-            ))}
-          </div>
-        </MainSectionBlock>
+        </MainSectionBlock> */}
       </Section>
-      <Section className="overflow-y-auto h-[calc(100dvh_-_32px)] w-[360px] flex flex-col gap-2 grow">
+      <Section className="min-w-80 tablet:w-[360px] ">
         <div className="-mb-4">
           <h2 className="text-2xl font-bold">Yong Chen</h2>
           <h4 className="text-base font-bold mb-4">Frond End Developer</h4>
@@ -243,6 +130,6 @@ export default async function Home({
           ></Image>
         </Card>
       </Section>
-    </main>
+    </>
   );
 }
