@@ -1,10 +1,11 @@
+"use client";
 import { baseIconStyle } from "@constant/s/icon-style";
 import { cN } from "@libs/styles-merge";
 
 interface Props {
   className?: string;
 }
-function MoonIcon({ className }: Props) {
+function ArrowDownIcon({ className }: Props) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -18,9 +19,9 @@ function MoonIcon({ className }: Props) {
       strokeLinejoin="round"
       className={cN(baseIconStyle, className)}
     >
-      <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+      <path d="m6 9 6 6 6-6" />
     </svg>
   );
 }
 
-export default MoonIcon;
+export default ArrowDownIcon;

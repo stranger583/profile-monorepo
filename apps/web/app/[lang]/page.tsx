@@ -1,28 +1,20 @@
-import "./globals.css";
 import "@repo/ui/styles.css";
+import "./globals.css";
 
 import Image from "next/image";
 import Link from "next/link";
 
 import { Card, CardHeader, CardContent } from "@repo/ui/card";
 import { Section } from "@repo/ui/section";
-import * as Collapsible from "@repo/ui/collapsible";
 import me from "@public/images/me.jpg";
-import fish from "@public/images/fish.jpg";
 import bar from "@public/images/bar.jpg";
-import fuji from "@public/images/fuji.jpg";
 import lionTravel from "@public/images/lion-travel.jpg";
 
-import ThemeButton from "@components/theme-button";
 import MainSectionBlock from "@components/main-section-block";
 import ArticleBlock from "@components/article-card";
 
 import { Locale } from "../../i18n.config";
 import { getDictionary } from "../../get-dictionary";
-import LangButton from "@components/lang-button";
-import GitHubIcon from "@icons/github";
-import LinkedinIcon from "@icons/linkedin-icons";
-import ArrowDownIcon from "@icons/arrow-down";
 const mockArticleData = [
   {
     imgUrl: "./images/lion-travel.jpg",
@@ -52,7 +44,7 @@ export default async function Home({
   const { HomePage } = await getDictionary(lang);
   return (
     <>
-      <Section className="overflow-y-auto h-[calc(100dvh_-_32px)] w-[720px] flex flex-col gap-10 grow ">
+      <Section className="tablet:w-[720px] gap-10 grow ">
         <MainSectionBlock title={HomePage.mainTitle} titleSize="2xl">
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint
@@ -62,21 +54,25 @@ export default async function Home({
           </p>
         </MainSectionBlock>
         <MainSectionBlock title="Recent Project" url="./">
+          <div className="flex laptop:flex-row flex-col items-center justify-between gap-8 tablet:gap-4 ">
+            {mockArticleData.map((infos) => (
+              <ArticleBlock
+                key={infos.title}
+                articleInfos={infos}
+                className="w-full"
+              />
+            ))}
+          </div>
+        </MainSectionBlock>
+        {/* <MainSectionBlock title="Recent Article" url="./">
           <div className="flex items-center justify-between gap-4">
             {mockArticleData.map((infos) => (
               <ArticleBlock key={infos.title} articleInfos={infos} />
             ))}
           </div>
-        </MainSectionBlock>
-        <MainSectionBlock title="Recent Article" url="./">
-          <div className="flex items-center justify-between gap-4">
-            {mockArticleData.map((infos) => (
-              <ArticleBlock key={infos.title} articleInfos={infos} />
-            ))}
-          </div>
-        </MainSectionBlock>
+        </MainSectionBlock> */}
       </Section>
-      <Section className="overflow-y-auto min-w-80 h-[calc(100dvh_-_32px)] w-[360px] flex flex-col gap-2 ">
+      <Section className="min-w-80 tablet:w-[360px] ">
         <div className="-mb-4">
           <h2 className="text-2xl font-bold">Yong Chen</h2>
           <h4 className="text-base font-bold mb-4">Frond End Developer</h4>

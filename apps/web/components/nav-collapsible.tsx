@@ -1,5 +1,5 @@
 "use client";
-import ArrowDownIcon from "@icons/arrow-down";
+import ArrowDownIcon from "@icons/arrow-down-icon";
 import { Card } from "@repo/ui/card";
 import {
   Collapsible,

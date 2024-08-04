@@ -5,7 +5,7 @@ import localFont from "next/font/local";
 import "@repo/tailwind-config/styles.css";
 import LangButton from "@components/lang-button";
 import ThemeButton from "@components/theme-button";
-import GitHubIcon from "@icons/github";
+import GitHubIcon from "@icons/github-icon";
 import LinkedinIcon from "@icons/linkedin-icons";
 import { Section } from "@repo/ui/section";
 import Link from "next/link";
@@ -13,6 +13,7 @@ import NavCard from "@components/nav-card";
 import NavCollapsible from "@components/nav-collapsible";
 import NavAlbum from "@components/nav-album";
 import NavToolsCard from "@components/nav-tools-card";
+import Header from "@components/header";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -39,8 +40,9 @@ export default function RootLayout({
   return (
     <html lang={params.lang} data-theme="dark">
       <body className={`dark p-4`}>
-        <main className="desktop:flex-row flex gap-3">
-          <Section className="w-[360px]">
+        <Header />
+        <main className="flex flex-col tablet:flex-row gap-3">
+          <Section className="w-[360px] hidden desktop:flex">
             <NavCard />
             <NavToolsCard title="Tools">
               <ThemeButton />
