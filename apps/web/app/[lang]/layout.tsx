@@ -40,9 +40,9 @@ export default function RootLayout({
   return (
     <html lang={params.lang} data-theme="dark">
       <body className={`dark p-4`}>
-        <Header />
+        {/* <Header /> */}
         <main className="flex flex-col tablet:flex-row gap-3">
-          <Section className="w-[360px] hidden desktop:flex">
+          {/* <Section className="w-[360px] hidden desktop:flex">
             <NavCard />
             <NavToolsCard title="Tools">
               <ThemeButton />
@@ -61,7 +61,7 @@ export default function RootLayout({
                 <LinkedinIcon />
               </Link>
             </NavToolsCard>
-          </Section>
+          </Section> */}
           {children}
         </main>
       </body>
